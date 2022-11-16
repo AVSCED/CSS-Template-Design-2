@@ -1,0 +1,124 @@
+/* style sheet for css second assignment */
+body {
+  margin: 0px;
+}
+h2 {
+  margin: 0px 0px 20px 0px;
+}
+/*top section containor includes menu and logo*/
+.headcontainor {
+  margin: 0px;
+  display: block;
+}
+/* top menu containor */
+.headmenu {
+  display: block;
+  overflow: hidden;
+  text-align: right;
+  padding: 40px 40px 20px 0px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+/* menu links */
+.menulink {
+  text-decoration: none;
+  padding: 20px;
+}
+/* site logo */
+.sitelogo {
+  display: block;
+  overflow: hidden;
+  padding: 0px 0px 20px 60px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+/* banner area */
+.areabgdiv {
+  position: relative;
+  margin: 0px 50px 0px 50px;
+  background-color: lightgray;
+  padding: 20px;
+}
+/* on banner text */
+.bannertoptext {
+  width: 20%;
+  word-wrap: break-word;
+}
+/* on banner button */
+.bannertopbtn {
+  margin-top: 5px;
+  padding: 5px;
+  border: 1px solid #85523e8c;
+  border-radius: 4px;
+  background-color: #f0f0f0;
+  width: 10%;
+  text-align: center;
+  box-shadow: 1px 1px 8px black;
+}
+/* grid area */
+.gridcontainor {
+  display: inline-block;
+  text-align: center;
+  width: 100%;
+}
+.blockcontainer {
+  display: inline-block;
+  padding: 15px;
+  text-align: center;
+}
+.square {
+  background-color: lightgray;
+  height: 150px;
+  width: 300px;
+  padding: auto;
+  margin: auto;
+}
+.textsection {
+  text-align: center;
+}
+.textsection p{
+    margin: 0px;
+}
+.textsection a{
+    margin-top: 20px;
+}
+.subscribe {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  background-color: lightgray;
+  height: 85px;
+  margin: 0px 50px 0px 50px;
+  border-radius: 4px
+}
+.insub {
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+}
+h2{
+    margin: 0px;
+}
+input {
+    vertical-align: middle;
+    margin: 5px 10px 5px 0;
+    padding: 10px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+}
+.subbtn{
+    padding: 10px 20px;
+  background-color: dodgerblue;
+  border: 1px solid #ddd;
+  color: white;
+  cursor: pointer;
+}
+.footer {
+  margin: 0px 50px 0px 50px;
+}
+.left {
+  float: left;
+  margin: 0px 0px 30px 0px;
+}
+.right {
+  float: right;
+  margin: 0px 0px 30px 0px;
+}
