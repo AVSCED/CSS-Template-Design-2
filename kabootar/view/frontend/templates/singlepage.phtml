@@ -1,0 +1,71 @@
+<table border="1">
+    <tr>
+        <th>
+            <?= __("Name")?>
+        </th>
+        <th>
+            <?= __("SKU")?>
+        </th>
+        <th>
+            <?= __("Short Description")?>
+        </th>
+        <th>
+            <?= __("Description")?>
+        </th>
+        <th>
+            <?= __("Image")?>
+        </th>
+        <th>
+            <?= __("Like the Product") ?>
+        </th>
+        <th>
+            <?= __("Total Likes") ?>
+        </th>
+    </tr>
+
+    <?php
+        $productSku = $this->getRequest()->getParam("id");
+        $product = $block->getProductBySky($productSku);
+        $objctManager = \Magento\Framework\App\ObjectManager::getInstance();
+        $remote = $objctManager->get('Magento\Framework\HTTP\PhpEnvironment\RemoteAddress');
+        $ip = $remote->getRemoteAddress();
+     ?>
+    
+        <tr>
+            <td>
+                    <?= $product->getName(); ?>
+            </td>
+            <td>
+                    <?= $product->getSku(); ?>
+            </td>
+            <td>
+                <?= $product->getShortDescription(); ?>
+            </td>
+            <td>
+                <?= $product->getDescription(); ?>
+            </td>
+            <td>
+                <?php if($product->getImage() != ""){?>
+                    <img src="http://localhost/magento2/pub/media/catalog/product<?= $product->getImage(); ?>" alt="image">
+                <?php } ?>
+            </td>
+            <td>
+                <?php $likeData = $block->getLikeData($productSku);
+                    $flag = 0;
+                foreach ($likeData as $key => $value) {
+                    if($value['ip_address'] == $ip){?>
+                        <a href="<?= $block->getUrl('cataloglist/like/index',['id'=>$value['like_id'], 'ip'=>$ip, 'action'=>'unlike']); ?>">Unlike</a>
+                    <?php $flag = 1; break; 
+                    }
+                } ?>
+                    <?php if($flag == 0){ ?>
+                        <a href="<?= $block->getUrl('cataloglist/like/index',['id'=>$product->getSku(), 'ip'=>$ip, 'action'=>'like']); ?>">Like</a>
+                    <?php }
+                ?>
+            </td>
+            <td>
+                <?= count($likeData) ?>
+            </td>
+        </tr>
+</table>
+

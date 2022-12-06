@@ -1,0 +1,54 @@
+<table border="1">
+    <tr>
+        <th>
+            <?= __("Name")?>
+        </th>
+        <th>
+            <?= __("SKU")?>
+        </th>
+        <th>
+            <?= __("Short Description")?>
+        </th>
+        <th>
+            <?= __("Description")?>
+        </th>
+        <th>
+            <?= __("Image")?>
+        </th>
+        
+    </tr>
+
+    <?php
+    $productCollection = $block->getProductCollection();
+    foreach ($productCollection as $product) { ?>
+    
+        <tr>
+            <td>
+                <a href="<?= $block->getUrl('cataloglist/singlepage/index',['id'=>$product->getSku()]); ?>" target="_blanck">
+                    <?= $product->getName(); ?>
+                </a>
+            </td>
+            <td>
+                <a href="<?= $block->getUrl('cataloglist/singlepage/index',['id'=>$product->getSku()]); ?>" target="_blanck">
+                    <?= $product->getSku(); ?>
+                </a>
+            </td>
+            <td>
+                <?= $product->getShortDescription(); ?>
+            </td>
+            <td>
+                <?= $product->getDescription(); ?>
+            </td>
+            <td>
+                <?php if($product->getImage() != ""){?>
+                    <a href="<?= $block->getUrl('cataloglist/singlepage/index',['id'=>$product->getSku()]); ?>" target="_blanck">
+                    <img src="http://localhost/magento2/pub/media/catalog/product<?= $product->getImage(); ?>" alt="image">
+                    </a>
+                <?php } ?>
+            </td>
+        </tr>
+       
+        
+   <?php } ?>
+
+</table>
